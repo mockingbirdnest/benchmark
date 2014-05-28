@@ -25,7 +25,7 @@
 template <typename T, size_t N>
 char (&ArraySizeHelper(T (&array)[N]))[N];
 
-// That gcc wants both of these prototypes seems mysterious. VC, for
+// That gcc waents both of these prototypes seems mysterious. VC, for
 // its part, can't decide which to use (another mystery). Matching of
 // template overloads: the final frontier.
 #ifndef COMPILER_MSVC
@@ -46,6 +46,13 @@ char (&ArraySizeHelper(const T (&array)[N]))[N];
 #define CHECK_GT(a, b) CHECK((a) > (b))
 #define CHECK_LT(a, b) CHECK((a) < (b))
 
+#ifdef _MSC_VER
+#define ATTRIBUTE_UNUSED
+#define ATTRIBUTE_ALWAYS_INLINE
+#define HAVE_ATTRIBUTE_ALWAYS_INLINE 0
+#define ATTRIBUTE_NOINLINE
+#define HAVE_ATTRIBUTE_NOINLINE 0
+#else
 //
 // Prevent the compiler from complaining about or optimizing away variables
 // that appear unused.
@@ -58,5 +65,6 @@ char (&ArraySizeHelper(const T (&array)[N]))[N];
 #define HAVE_ATTRIBUTE_ALWAYS_INLINE 1
 #define ATTRIBUTE_NOINLINE __attribute__((noinline))
 #define HAVE_ATTRIBUTE_NOINLINE 1
+#endif
 
 #endif  // BENCHMARK_MACROS_H_
