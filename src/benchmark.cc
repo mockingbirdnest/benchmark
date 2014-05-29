@@ -23,6 +23,8 @@
 #include "sysinfo.h"
 #include "walltime.h"
 
+#define DEBUG
+
 #if defined HAVE_SYS_TIME_H
 #include <sys/time.h>
 #endif
@@ -974,12 +976,16 @@ State::State(FastClock* clock, SharedState* s, int t)
 
 bool State::KeepRunning() {
   // Fast path
+  //printf("Clocking %lld %f %d\n", stop_time_micros_, pause_real_time_, iterations_);
   if ((FLAGS_benchmark_iterations == 0 &&
-       !clock_->HasReached(stop_time_micros_ + pause_real_time_)) ||
+       !clock_->HasReached(stop_time_micros_ +
+                           kNumMicrosPerSecond * pause_real_time_)) ||
       iterations_ < FLAGS_benchmark_iterations) {
     ++iterations_;
+  //printf("return iterations_ %d, hr %d\n", iterations_, clock_->HasReached(stop_time_micros_ + pause_real_time_));
     return true;
   }
+  printf("iterations_ %d, hr %d\n", iterations_, clock_->HasReached(stop_time_micros_ + pause_real_time_));
 
   // To block thread 0 until all other threads exit, we have a signal exit
   // point for KeepRunning() to return false.  The fast path above always
@@ -987,17 +993,23 @@ bool State::KeepRunning() {
   bool ret = false;
   switch (state_) {
     case STATE_INITIAL:
+      printf("StartRunning\n");
       ret = StartRunning();
+      printf("%d\n", ret);
       break;
     case STATE_STARTING:
       CHECK(false);
       ret = true;
       break;
     case STATE_RUNNING:
+      printf("FinishInterval\n");
       ret = FinishInterval();
+      printf("%d\n", ret);
       break;
     case STATE_STOPPING:
+      printf("Maybestop\n");
       ret = MaybeStop();
+      printf("%d\n", ret);
       break;
     case STATE_STOPPED:
       CHECK(false);
@@ -1016,6 +1028,9 @@ bool State::KeepRunning() {
     }
   }
 
+  if (ret) {
+    ++iterations_;
+  }
   return ret;
 }
 
@@ -1123,7 +1138,7 @@ bool State::FinishInterval() {
       iterations_ < 1) {
     interval_micros_ *= 2;
 #ifdef DEBUG
-    std::cout << "Not enough iterations in interval; "
+    std::cout << "Not enough iterations in interval; " << iterations_ <<" "
               << "Trying again for " << interval_micros_ << " useconds.\n";
 #endif
     is_continuation_ = false;
@@ -1206,7 +1221,9 @@ bool State::MaybeStop() {
 
 void State::Run() {
   stats_->Reset();
+  printf("before %f\n", MyCPUUsage());
   shared_->instance->bm->function_(*this);
+  printf("after  %f\n", MyCPUUsage());
   {
     mutex_lock l(&shared_->mu);
     shared_->stats.Add(*stats_);

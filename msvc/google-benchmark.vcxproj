@@ -11,6 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\benchmark\benchmark.h" />
+    <ClInclude Include="..\include\benchmark\macros.h" />
     <ClInclude Include="..\src\colorprint.h" />
     <ClInclude Include="..\src\commandlineflags.h" />
     <ClInclude Include="..\src\cycleclock.h" />
