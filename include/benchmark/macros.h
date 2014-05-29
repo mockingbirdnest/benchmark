@@ -35,6 +35,8 @@ char (&ArraySizeHelper(const T (&array)[N]))[N];
 
 #define arraysize(array) (sizeof(ArraySizeHelper(array)))
 
+// If you include both this library and glog, glog must come first.
+#ifndef CHECK
 #define CHECK(b)             \
   do {                       \
     if (!(b)) assert(false); \
@@ -45,6 +47,7 @@ char (&ArraySizeHelper(const T (&array)[N]))[N];
 #define CHECK_LE(a, b) CHECK((a) <= (b))
 #define CHECK_GT(a, b) CHECK((a) > (b))
 #define CHECK_LT(a, b) CHECK((a) < (b))
+#endif
 
 #ifdef _MSC_VER
 #define ATTRIBUTE_UNUSED

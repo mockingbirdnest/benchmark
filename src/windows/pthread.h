@@ -52,10 +52,6 @@
 #include <errno.h>
 #include <sys/timeb.h>
 
-#define ETIMEDOUT	110
-#define ENOTSUP		134
-
-
 #define PTHREAD_CANCEL_DISABLE 0
 #define PTHREAD_CANCEL_ENABLE 0x01
 
@@ -346,12 +342,12 @@ extern int pthread_rwlockattr_setpshared(pthread_rwlockattr_t *a, int s);
 #define sigsuspend(...) (pthread_testcancel(), sigsuspend(__VA_ARGS__))
 #define sigwait(...) (pthread_testcancel(), sigwait(__VA_ARGS__))
 #define sigwaitinfo(...) (pthread_testcancel(), sigwaitinfo(__VA_ARGS__))
-#define sleep(...) (pthread_testcancel(), sleep(__VA_ARGS__))
+//#define sleep(...) (pthread_testcancel(), sleep(__VA_ARGS__))
 //#define Sleep(...) (pthread_testcancel(), Sleep(__VA_ARGS__))
 #define system(...) (pthread_testcancel(), system(__VA_ARGS__))
 
 
-#define access(...) (pthread_testcancel(), access(__VA_ARGS__))
+//#define access(...) (pthread_testcancel(), access(__VA_ARGS__))
 #define asctime(...) (pthread_testcancel(), asctime(__VA_ARGS__))
 #define asctime_r(...) (pthread_testcancel(), asctime_r(__VA_ARGS__))
 #define catclose(...) (pthread_testcancel(), catclose(__VA_ARGS__))
@@ -410,7 +406,7 @@ extern int pthread_rwlockattr_setpshared(pthread_rwlockattr_t *a, int s);
 #define getc_unlocked(...) (pthread_testcancel(), getc_unlocked(__VA_ARGS__))
 #define getchar(...) (pthread_testcancel(), getchar(__VA_ARGS__))
 #define getchar_unlocked(...) (pthread_testcancel(), getchar_unlocked(__VA_ARGS__))
-#define getcwd(...) (pthread_testcancel(), getcwd(__VA_ARGS__))
+//#define getcwd(...) (pthread_testcancel(), getcwd(__VA_ARGS__))
 #define getdate(...) (pthread_testcancel(), getdate(__VA_ARGS__))
 #define getgrent(...) (pthread_testcancel(), getgrent(__VA_ARGS__))
 #define getgrgid(...) (pthread_testcancel(), getgrgid(__VA_ARGS__))
@@ -453,19 +449,19 @@ extern int pthread_rwlockattr_setpshared(pthread_rwlockattr_t *a, int s);
 #define iconv_close(...) (pthread_testcancel(), iconv_close(__VA_ARGS__))
 #define iconv_open(...) (pthread_testcancel(), iconv_open(__VA_ARGS__))
 #define ioctl(...) (pthread_testcancel(), ioctl(__VA_ARGS__))
-#define link(...) (pthread_testcancel(), link(__VA_ARGS__))
+//#define link(...) (pthread_testcancel(), link(__VA_ARGS__))
 #define localtime(...) (pthread_testcancel(), localtime(__VA_ARGS__))
 #define localtime_r(...) (pthread_testcancel(), localtime_r(__VA_ARGS__))
-#define lseek(...) (pthread_testcancel(), lseek(__VA_ARGS__))
+//#define lseek(...) (pthread_testcancel(), lseek(__VA_ARGS__))
 #define lstat(...) (pthread_testcancel(), lstat(__VA_ARGS__))
 #define mkstemp(...) (pthread_testcancel(), mkstemp(__VA_ARGS__))
 #define nftw(...) (pthread_testcancel(), nftw(__VA_ARGS__))
 #define opendir(...) (pthread_testcancel(), opendir(__VA_ARGS__))
 #define openlog(...) (pthread_testcancel(), openlog(__VA_ARGS__))
 #define pathconf(...) (pthread_testcancel(), pathconf(__VA_ARGS__))
-#define pclose(...) (pthread_testcancel(), pclose(__VA_ARGS__))
+//#define pclose(...) (pthread_testcancel(), pclose(__VA_ARGS__))
 #define perror(...) (pthread_testcancel(), perror(__VA_ARGS__))
-#define popen(...) (pthread_testcancel(), popen(__VA_ARGS__))
+//#define popen(...) (pthread_testcancel(), popen(__VA_ARGS__))
 #define posix_fadvise(...) (pthread_testcancel(), posix_fadvise(__VA_ARGS__))
 #define posix_fallocate(...) (pthread_testcancel(), posix_fallocate(__VA_ARGS__))
 #define posix_madvise(...) (pthread_testcancel(), posix_madvise(__VA_ARGS__))

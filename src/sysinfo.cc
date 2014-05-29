@@ -39,7 +39,6 @@
 #include <unistd.h>
 #endif
 #if defined OS_WINDOWS
-#include <Shlwapi.h>
 #include "windows/pthread.h"
 #endif
 
