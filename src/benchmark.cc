@@ -23,8 +23,6 @@
 #include "sysinfo.h"
 #include "walltime.h"
 
-#define DEBUG
-
 #if defined HAVE_SYS_TIME_H
 #include <sys/time.h>
 #endif
@@ -1129,7 +1127,7 @@ bool State::FinishInterval() {
       iterations_ < 1) {
     interval_micros_ *= 2;
 #ifdef DEBUG
-    std::cout << "Not enough iterations in interval; " << iterations_ <<" "
+    std::cout << "Not enough iterations in interval; "
               << "Trying again for " << interval_micros_ << " useconds.\n";
 #endif
     is_continuation_ = false;
