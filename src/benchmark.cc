@@ -23,15 +23,9 @@
 #include "sysinfo.h"
 #include "walltime.h"
 
-#if defined HAVE_SYS_TIME_H
 #include <sys/time.h>
-#endif
-#if defined HAVE_PTHREAD_H
 #include <pthread.h>
-#endif
-#if defined HAVE_SEMAPHORE_H
 #include <semaphore.h>
-#endif
 #include <string.h>
 
 #include <algorithm>
@@ -39,10 +33,6 @@
 #include <iostream>
 #include <memory>
 #include <sstream>
-
-#if defined OS_WINDOWS
-#include "windows/pthread.h"
-#endif
 
 DEFINE_string(benchmark_filter, ".",
               "A regular expression that specifies the set of benchmarks "
@@ -353,6 +343,14 @@ BenchmarkFamilies::~BenchmarkFamilies() {
 
 int BenchmarkFamilies::AddBenchmark(Benchmark* family) {
   mutex_lock l(&benchmark_mutex);
+  // This loop attempts to reuse an entry that was previously removed to avoid
+  // unncessary growth of the vector.
+  for (int index = 0; index < families_.size(); ++index) {
+    if (families_[index] == nullptr) {
+      families_[index] = family;
+      return index;
+    }
+  }
   int index = families_.size();
   families_.push_back(family);
   return index;
@@ -361,15 +359,8 @@ int BenchmarkFamilies::AddBenchmark(Benchmark* family) {
 void BenchmarkFamilies::RemoveBenchmark(int index) {
   mutex_lock l(&benchmark_mutex);
   families_[index] = NULL;
-
-  /*
-  This code would modify families_ while it is being iterated upon in the
-  destructor of BenchmarkFamilies.
-  // Shrink the vector if convenient.
-  while (!families_.empty() && families_.back() == NULL) {
-    families_.pop_back();
-  }
-  */
+  // Don't shrink families_ here, we might be called by the destructor of
+  // BenchmarkFamilies which iterates over the vector.
 }
 
 void BenchmarkFamilies::FindBenchmarks(
@@ -1160,18 +1151,7 @@ bool State::FinishInterval() {
   const double accumulated_time = walltime::Now() - start_time_;
   const double total_overhead = overhead * iterations_;
   CHECK_LT(pause_real_time_, accumulated_time);
-#if defined OS_WINDOWS
-  // The clock accuracy is poor on Windows.
-  if (pause_real_time_ + total_overhead >= accumulated_time) {
-    fprintf(stderr,
-            "Overhead measurement flawed: test ran faster (%f s) than expected "
-            "overhead (%f s).  Try again and be aware that elapsed times may "
-            "be unreliable.\n",
-            accumulated_time,  pause_real_time_ + total_overhead);
-  }
-#else
   CHECK_LT(pause_real_time_ + total_overhead, accumulated_time);
-#endif
   data.real_accumulated_time =
       accumulated_time - (pause_real_time_ + total_overhead);
   data.cpu_accumulated_time = (MyCPUUsage() + ChildrenCPUUsage()) -
