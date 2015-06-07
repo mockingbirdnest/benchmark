@@ -1043,11 +1043,13 @@ bool State::KeepRunning() {
 }
 
 void State::PauseTiming() {
+  CHECK_EQ(STATE_RUNNING, state_);
   start_pause_cpu_ = MyCPUUsage() + ChildrenCPUUsage();
   start_pause_real_ = walltime::Now();
 }
 
 void State::ResumeTiming() {
+  CHECK_EQ(STATE_RUNNING, state_);
   pause_cpu_time_ += MyCPUUsage() + ChildrenCPUUsage() - start_pause_cpu_;
   pause_real_time_ += walltime::Now() - start_pause_real_;
 }
