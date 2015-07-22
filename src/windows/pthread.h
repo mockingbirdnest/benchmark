@@ -99,12 +99,14 @@
 
 
 /* Windows doesn't have this, so declare it ourselves. */
+#if defined(_MSC_VER) && (_MSC_VER < 1900)
 struct timespec
 {
 	/* long long in windows is the same as long in unix for 64bit */
 	long long tv_sec;
 	long long tv_nsec;
 };
+#endif
 
 typedef struct _pthread_cleanup _pthread_cleanup;
 struct _pthread_cleanup
@@ -344,11 +346,11 @@ extern int pthread_rwlockattr_setpshared(pthread_rwlockattr_t *a, int s);
 #define sigwaitinfo(...) (pthread_testcancel(), sigwaitinfo(__VA_ARGS__))
 //#define sleep(...) (pthread_testcancel(), sleep(__VA_ARGS__))
 //#define Sleep(...) (pthread_testcancel(), Sleep(__VA_ARGS__))
-#define system(...) (pthread_testcancel(), system(__VA_ARGS__))
+//#define system(...) (pthread_testcancel(), system(__VA_ARGS__))
 
 
 //#define access(...) (pthread_testcancel(), access(__VA_ARGS__))
-#define asctime(...) (pthread_testcancel(), asctime(__VA_ARGS__))
+//#define asctime(...) (pthread_testcancel(), asctime(__VA_ARGS__))
 #define asctime_r(...) (pthread_testcancel(), asctime_r(__VA_ARGS__))
 #define catclose(...) (pthread_testcancel(), catclose(__VA_ARGS__))
 #define catgets(...) (pthread_testcancel(), catgets(__VA_ARGS__))
@@ -356,7 +358,7 @@ extern int pthread_rwlockattr_setpshared(pthread_rwlockattr_t *a, int s);
 #define closedir(...) (pthread_testcancel(), closedir(__VA_ARGS__))
 #define closelog(...) (pthread_testcancel(), closelog(__VA_ARGS__))
 #define ctermid(...) (pthread_testcancel(), ctermid(__VA_ARGS__))
-#define ctime(...) (pthread_testcancel(), ctime(__VA_ARGS__))
+//#define ctime(...) (pthread_testcancel(), ctime(__VA_ARGS__))
 #define ctime_r(...) (pthread_testcancel(), ctime_r(__VA_ARGS__))
 #define dbm_close(...) (pthread_testcancel(), dbm_close(__VA_ARGS__))
 #define dbm_delete(...) (pthread_testcancel(), dbm_delete(__VA_ARGS__))
@@ -394,7 +396,7 @@ extern int pthread_rwlockattr_setpshared(pthread_rwlockattr_t *a, int s);
 #define fseek(...) (pthread_testcancel(), fseek(__VA_ARGS__))
 #define fseeko(...) (pthread_testcancel(), fseeko(__VA_ARGS__))
 #define fsetpos(...) (pthread_testcancel(), fsetpos(__VA_ARGS__))
-#define fstat(...) (pthread_testcancel(), fstat(__VA_ARGS__))
+//#define fstat(...) (pthread_testcancel(), fstat(__VA_ARGS__))
 #define ftell(...) (pthread_testcancel(), ftell(__VA_ARGS__))
 #define ftello(...) (pthread_testcancel(), ftello(__VA_ARGS__))
 #define ftw(...) (pthread_testcancel(), ftw(__VA_ARGS__))
@@ -450,7 +452,7 @@ extern int pthread_rwlockattr_setpshared(pthread_rwlockattr_t *a, int s);
 #define iconv_open(...) (pthread_testcancel(), iconv_open(__VA_ARGS__))
 #define ioctl(...) (pthread_testcancel(), ioctl(__VA_ARGS__))
 //#define link(...) (pthread_testcancel(), link(__VA_ARGS__))
-#define localtime(...) (pthread_testcancel(), localtime(__VA_ARGS__))
+//#define localtime(...) (pthread_testcancel(), localtime(__VA_ARGS__))
 #define localtime_r(...) (pthread_testcancel(), localtime_r(__VA_ARGS__))
 //#define lseek(...) (pthread_testcancel(), lseek(__VA_ARGS__))
 #define lstat(...) (pthread_testcancel(), lstat(__VA_ARGS__))
@@ -512,10 +514,10 @@ extern int pthread_rwlockattr_setpshared(pthread_rwlockattr_t *a, int s);
 #define setpwent(...) (pthread_testcancel(), setpwent(__VA_ARGS__))
 #define setservent(...) (pthread_testcancel(), setservent(__VA_ARGS__))
 #define setutxent(...) (pthread_testcancel(), setutxent(__VA_ARGS__))
-#define stat(...) (pthread_testcancel(), stat(__VA_ARGS__))
+//#define stat(...) (pthread_testcancel(), stat(__VA_ARGS__))
 #define strerror(...) (pthread_testcancel(), strerror(__VA_ARGS__))
 #define strerror_r(...) (pthread_testcancel(), strerror_r(__VA_ARGS__))
-#define strftime(...) (pthread_testcancel(), strftime(__VA_ARGS__))
+//#define strftime(...) (pthread_testcancel(), strftime(__VA_ARGS__))
 #define symlink(...) (pthread_testcancel(), symlink(__VA_ARGS__))
 //#define sync(...) (pthread_testcancel(), sync(__VA_ARGS__))
 #define syslog(...) (pthread_testcancel(), syslog(__VA_ARGS__))
@@ -523,7 +525,7 @@ extern int pthread_rwlockattr_setpshared(pthread_rwlockattr_t *a, int s);
 #define tmpnam(...) (pthread_testcancel(), tmpnam(__VA_ARGS__))
 #define ttyname(...) (pthread_testcancel(), ttyname(__VA_ARGS__))
 #define ttyname_r(...) (pthread_testcancel(), ttyname_r(__VA_ARGS__))
-#define tzset(...) (pthread_testcancel(), tzset(__VA_ARGS__))
+//#define tzset(...) (pthread_testcancel(), tzset(__VA_ARGS__))
 #define ungetc(...) (pthread_testcancel(), ungetc(__VA_ARGS__))
 #define ungetwc(...) (pthread_testcancel(), ungetwc(__VA_ARGS__))
 #define unlink(...) (pthread_testcancel(), unlink(__VA_ARGS__))
@@ -531,7 +533,7 @@ extern int pthread_rwlockattr_setpshared(pthread_rwlockattr_t *a, int s);
 #define vfwprintf(...) (pthread_testcancel(), vfwprintf(__VA_ARGS__))
 #define vprintf(...) (pthread_testcancel(), vprintf(__VA_ARGS__))
 #define vwprintf(...) (pthread_testcancel(), vwprintf(__VA_ARGS__))
-#define wcsftime(...) (pthread_testcancel(), wcsftime(__VA_ARGS__))
+//#define wcsftime(...) (pthread_testcancel(), wcsftime(__VA_ARGS__))
 #define wordexp(...) (pthread_testcancel(), wordexp(__VA_ARGS__))
 #define wprintf(...) (pthread_testcancel(), wprintf(__VA_ARGS__))
 #define wscanf(...) (pthread_testcancel(), wscanf(__VA_ARGS__))

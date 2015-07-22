@@ -46,6 +46,9 @@
 #include "pthread.h"
 
 #include <process.h>
+#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#include <time.h>
+#endif
 
 volatile long _pthread_cancelling;
 

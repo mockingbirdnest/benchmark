@@ -55,6 +55,7 @@ int safe_vsnprintf(char *str, size_t size, const char *format, va_list ap) {
   return _vsnprintf(str, size-1, format, ap);
 }
 
+#if defined(_MSC_VER) && (_MSC_VER < 1900)
 int snprintf(char *str, size_t size, const char *format, ...) {
   va_list ap;
   va_start(ap, format);
@@ -62,6 +63,7 @@ int snprintf(char *str, size_t size, const char *format, ...) {
   va_end(ap);
   return r;
 }
+#endif
 
 // Based on: http://www.google.com/codesearch/p?hl=en#dR3YEbitojA/os_win32.c&q=GetSystemTimeAsFileTime%20license:bsd
 // See COPYING for copyright information.
