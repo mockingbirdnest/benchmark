@@ -105,7 +105,11 @@ void ConsoleReporter::PrintRunData(const Run& result) {
                 (result.cpu_accumulated_time * multiplier) /
                     (static_cast<double>(result.iterations)));
   }
+#if defined(COMPILER_MSVC)
+  ColorPrintf(COLOR_CYAN, "%10u", result.iterations);
+#else
   ColorPrintf(COLOR_CYAN, "%10lld", result.iterations);
+#endif
   ColorPrintf(COLOR_DEFAULT, "%*s %*s %s\n",
               13, rate.c_str(),
               18, items.c_str(),

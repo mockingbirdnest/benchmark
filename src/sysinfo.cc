@@ -234,7 +234,7 @@ void InitializeSystemInfo() {
 
 #elif defined OS_WINDOWS
 #pragma comment(lib, "shlwapi.lib")  // for SHGetValue()
-// In NT, read MHz from the registry. If we fail to do so or we're in win9x
+  // In NT, read MHz from the registry. If we fail to do so or we're in win9x
   // then make a crude estimate.
   OSVERSIONINFO os;
   os.dwOSVersionInfoSize = sizeof(os);
@@ -306,7 +306,7 @@ static double MyCPUUsageRUsage() {
   user.HighPart = user_time.dwHighDateTime;
   user.LowPart = user_time.dwLowDateTime;
   return (static_cast<double>(kernel.QuadPart) +
-          static_cast<double>(user.QuadPart)) / 1.0E-7;
+          static_cast<double>(user.QuadPart)) * 1.0E-7;
 #endif  // OS_WINDOWS
 }
 
