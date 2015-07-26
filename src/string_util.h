@@ -1,6 +1,8 @@
 #ifndef BENCHMARK_STRING_UTIL_H_
 #define BENCHMARK_STRING_UTIL_H_
 
+#include "internal_macros.h"
+
 #include <string>
 #include <sstream>
 #include <utility>
@@ -13,8 +15,10 @@ std::string HumanReadableNumber(double n);
 
 std::string StringPrintF(const char* format, ...);
 
-inline std::ostream&
-StringCatImp(std::ostream& out) noexcept
+inline std::ostream& StringCatImp(std::ostream& out)
+#if !defined(COMPILER_MSVC) || (_MSC_VER >= 1900)
+ noexcept
+#endif
 {
   return out;
 }

@@ -12,9 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+#include "internal_macros.h"
 #include "walltime.h"
 
+#if !defined(OS_WINDOWS)
 #include <sys/time.h>
+#endif
 
 #include <cstdio>
 #include <cstdint>
@@ -91,16 +94,29 @@ private:
   }
 
   WallTime Slow() const {
+#if defined(COMPILER_MSVC)
+    const std::chrono::time_point<std::chrono::system_clock> now =
+        std::chrono::system_clock::now();
+    const std::chrono::microseconds us_since_epoch =
+        std::chrono::duration_cast<std::chrono::microseconds>(
+            now.time_since_epoch());
+    return us_since_epoch.count() * 1e-6;
+#else
     struct timeval tv;
     gettimeofday(&tv, nullptr);
     return tv.tv_sec + tv.tv_usec * 1e-6;
+#endif
   }
 
 private:
   static_assert(sizeof(float) <= sizeof(int32_t),
                "type sizes don't allow the drift_adjust hack");
 
+#if defined(COMPILER_MSVC) && (_MSC_VER < 1900)
+  static const double kMaxErrorInterval;
+#else
   static constexpr double kMaxErrorInterval = 100e-6;
+#endif
 
   WallTime base_walltime_;
   int64_t base_cycletime_;
@@ -113,6 +129,9 @@ private:
   BENCHMARK_DISALLOW_COPY_AND_ASSIGN(WallTimeImp);
 };
 
+#if defined(COMPILER_MSVC) && (_MSC_VER < 1900)
+const double WallTimeImp::kMaxErrorInterval = 100e-6;
+#endif
 
 WallTime WallTimeImp::Now() {
   WallTime now = 0.0;
@@ -216,11 +235,19 @@ std::string DateTimeString(bool local) {
 
   std::tm timeinfo;
   std::memset(&timeinfo, 0, sizeof(std::tm));
+#if defined(COMPILER_MSVC)
+  if (local) {
+    timeinfo = *std::localtime(&now);
+  } else {
+    timeinfo = *gmtime(&now);
+  }
+#else
   if (local) {
     localtime_r(&now, &timeinfo);
   } else {
     gmtime_r(&now, &timeinfo);
   }
+#endif
   std::size_t written = std::strftime(storage, sizeof(storage), "%F %T", &timeinfo);
   CHECK(written < arraysize(storage));
   ((void)written); // prevent unused variable in optimized mode.
