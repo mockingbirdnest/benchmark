@@ -248,7 +248,12 @@ std::string DateTimeString(bool local) {
     gmtime_r(&now, &timeinfo);
   }
 #endif
+#if defined(COMPILER_MSVC) && (_MSC_VER < 1900)
+  std::size_t written = std::strftime(storage, sizeof(storage),
+                                      "%Y-%m-%d %H:%M:%S", &timeinfo);
+#else
   std::size_t written = std::strftime(storage, sizeof(storage), "%F %T", &timeinfo);
+#endif
   CHECK(written < arraysize(storage));
   ((void)written); // prevent unused variable in optimized mode.
   return std::string(storage);
