@@ -1,4 +1,4 @@
-// Copyright 2014 Google Inc. All rights reserved.
+// Copyright 2015 Google Inc. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,28 +12,33 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <gtest/gtest.h>
 #include "re.h"
 
-TEST(Regex, RegexSimple) {
-    benchmark::Regex re;
-    EXPECT_TRUE(re.Init("a+", NULL));
+namespace benchmark {
 
-    EXPECT_FALSE(re.Match(""));
-    EXPECT_TRUE(re.Match("a"));
-    EXPECT_TRUE(re.Match("aa"));
-    EXPECT_FALSE(re.Match("b"));
+Regex::Regex() : init_(false) { }
+
+bool Regex::Init(const std::string& spec, std::string* error) {
+  try {
+    re_ = std::regex(spec, std::regex_constants::extended);
+
+    init_ = true;
+  } catch (const std::regex_error& e) {
+    if (error) {
+      *error = e.what();
+    }
+  }
+  return init_;
 }
 
-TEST(Regex, InvalidNoErrorMessage) {
-    benchmark::Regex re;
-    EXPECT_FALSE(re.Init("[", NULL));
+Regex::~Regex() { }
+
+bool Regex::Match(const std::string& str) {
+  if (!init_) {
+    return false;
+  }
+
+  return std::regex_search(str, re_);
 }
 
-TEST(Regex, Invalid) {
-    std::string error;
-    benchmark::Regex re;
-    EXPECT_FALSE(re.Init("[", &error));
-
-    EXPECT_NE("", error);
-}
+}  // end namespace benchmark
