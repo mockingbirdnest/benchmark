@@ -37,8 +37,4 @@
 # define COMPILER_GCC
 #endif
 
-#if defined(COMPILER_MSVC) && (_MSC_VER >= 1800)
-# define HAVE_STD_REGEX
-#endif
-
 #endif // BENCHMARK_INTERNAL_MACROS_H_

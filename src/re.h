@@ -15,8 +15,6 @@
 #ifndef BENCHMARK_RE_H_
 #define BENCHMARK_RE_H_
 
-#include "internal_macros.h"
-
 #if defined(HAVE_STD_REGEX)
 #include <regex>
 #elif defined(HAVE_GNU_POSIX_REGEX)
