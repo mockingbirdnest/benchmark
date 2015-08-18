@@ -45,11 +45,11 @@ rules.ninja
 build/
 _build/
 
-# Windows junk files
+# OS Files
 [Tt]humbs.db
 *.DS_Store
 
-# Visual Studio files
+# Visual Studio Files
 *.[Oo]bj
 *.user
 *.aps
