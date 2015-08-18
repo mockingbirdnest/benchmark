@@ -40,9 +40,6 @@ private:
 // The CHECK macro returns a std::ostream object that can have extra information
 // written to it.
 #ifndef NDEBUG
-# if defined(COMPILER_MSVC) && (_MSC_VER < 1900)
-#  define __func__ __FUNCTION__
-# endif
 # define CHECK(b)  (b ? ::benchmark::internal::GetNullLogInstance()        \
                       : ::benchmark::internal::CheckHandler(               \
                           #b, __FILE__, __func__, __LINE__).GetLog())

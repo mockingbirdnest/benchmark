@@ -16,7 +16,7 @@ std::string HumanReadableNumber(double n);
 std::string StringPrintF(const char* format, ...);
 
 inline std::ostream& StringCatImp(std::ostream& out)
-#if !defined(COMPILER_MSVC) || (_MSC_VER >= 1900)
+#if !defined(COMPILER_MSVC)
  noexcept
 #endif
 {

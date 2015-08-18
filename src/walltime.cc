@@ -112,11 +112,7 @@ private:
   static_assert(sizeof(float) <= sizeof(int32_t),
                "type sizes don't allow the drift_adjust hack");
 
-#if defined(COMPILER_MSVC) && (_MSC_VER < 1900)
-  static const double kMaxErrorInterval;
-#else
   static constexpr double kMaxErrorInterval = 100e-6;
-#endif
 
   WallTime base_walltime_;
   int64_t base_cycletime_;
@@ -128,10 +124,6 @@ private:
 
   BENCHMARK_DISALLOW_COPY_AND_ASSIGN(WallTimeImp);
 };
-
-#if defined(COMPILER_MSVC) && (_MSC_VER < 1900)
-const double WallTimeImp::kMaxErrorInterval = 100e-6;
-#endif
 
 WallTime WallTimeImp::Now() {
   WallTime now = 0.0;
@@ -248,12 +240,7 @@ std::string DateTimeString(bool local) {
     gmtime_r(&now, &timeinfo);
   }
 #endif
-#if defined(COMPILER_MSVC) && (_MSC_VER < 1900)
-  std::size_t written = std::strftime(storage, sizeof(storage),
-                                      "%Y-%m-%d %H:%M:%S", &timeinfo);
-#else
   std::size_t written = std::strftime(storage, sizeof(storage), "%F %T", &timeinfo);
-#endif
   CHECK(written < arraysize(storage));
   ((void)written); // prevent unused variable in optimized mode.
   return std::string(storage);
