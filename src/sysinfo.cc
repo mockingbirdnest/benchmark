@@ -292,7 +292,7 @@ static double MyCPUUsageRUsage() {
     return 0.0;
   }
 #else
-  HANDLE proc = GetCurrentProcess();
+  static HANDLE proc = GetCurrentProcess();
   FILETIME creation_time;
   FILETIME exit_time;
   FILETIME kernel_time;
