@@ -61,5 +61,3 @@ void BM_explicit_iteration_count(benchmark::State& state) {
 
 }
 BENCHMARK(BM_explicit_iteration_count)->Iterations(42);
-
-BENCHMARK_MAIN();
