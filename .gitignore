@@ -3,6 +3,7 @@
 *.DS_Store
 
 # Visual Studio Files
+# Visual Studio Files
 *.[Oo]bj
 *.user
 *.aps
@@ -31,6 +32,7 @@ ipch/
 [Bb]in
 [Dd]ebug*/
 [Rr]elease*/
+.vs/
 
 *.a
 *.so

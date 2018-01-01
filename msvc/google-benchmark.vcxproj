@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\benchmark\benchmark.h" />
+    <ClInclude Include="..\include\benchmark\benchmark_api.h" />
+    <ClInclude Include="..\include\benchmark\reporter.h" />
+    <ClInclude Include="..\src\arraysize.h" />
+    <ClInclude Include="..\src\benchmark_api_internal.h" />
+    <ClInclude Include="..\src\benchmark_register.h" />
+    <ClInclude Include="..\src\benchmark_runner.h" />
+    <ClInclude Include="..\src\check.h" />
+    <ClInclude Include="..\src\colorprint.h" />
+    <ClInclude Include="..\src\commandlineflags.h" />
+    <ClInclude Include="..\src\complexity.h" />
+    <ClInclude Include="..\src\counter.h" />
+    <ClInclude Include="..\src\cycleclock.h" />
+    <ClInclude Include="..\src\internal_macros.h" />
+    <ClInclude Include="..\src\log.h" />
+    <ClInclude Include="..\src\mutex.h" />
+    <ClInclude Include="..\src\re.h" />
+    <ClInclude Include="..\src\sleep.h" />
+    <ClInclude Include="..\src\stat.h" />
+    <ClInclude Include="..\src\statistics.h" />
+    <ClInclude Include="..\src\string_util.h" />
+    <ClInclude Include="..\src\sysinfo.h" />
+    <ClInclude Include="..\src\thread_manager.h" />
+    <ClInclude Include="..\src\thread_timer.h" />
+    <ClInclude Include="..\src\timers.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\benchmark.cc" />
+    <ClCompile Include="..\src\benchmark_api_internal.cc" />
+    <ClCompile Include="..\src\benchmark_main.cc" />
+    <ClCompile Include="..\src\benchmark_register.cc" />
+    <ClCompile Include="..\src\benchmark_runner.cc" />
+    <ClCompile Include="..\src\colorprint.cc" />
+    <ClCompile Include="..\src\commandlineflags.cc" />
+    <ClCompile Include="..\src\complexity.cc" />
+    <ClCompile Include="..\src\console_reporter.cc" />
+    <ClCompile Include="..\src\counter.cc" />
+    <ClCompile Include="..\src\csv_reporter.cc" />
+    <ClCompile Include="..\src\json_reporter.cc" />
+    <ClCompile Include="..\src\reporter.cc" />
+    <ClCompile Include="..\src\sleep.cc" />
+    <ClCompile Include="..\src\statistics.cc" />
+    <ClCompile Include="..\src\string_util.cc" />
+    <ClCompile Include="..\src\sysinfo.cc" />
+    <ClCompile Include="..\src\timers.cc" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{EF4DE73E-EE11-4128-93EB-60B07E650EF2}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="windows_libraries.props" />
+    <Import Project="portability_macros.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="windows_libraries.props" />
+    <Import Project="portability_macros.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(OutDir)$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(OutDir)$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GOOGLEBENCHMARK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <LinkTimeCodeGeneration>false</LinkTimeCodeGeneration>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GOOGLEBENCHMARK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <LinkTimeCodeGeneration>false</LinkTimeCodeGeneration>
+    </Lib>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
