@@ -93,4 +93,6 @@ static void BM_MultipleRanges(benchmark::State& st) {
 }
 BENCHMARK(BM_MultipleRanges)->Ranges({{5, 5}, {6, 6}});
 
+#if !defined(_MSC_VER)
 BENCHMARK_MAIN();
+#endif

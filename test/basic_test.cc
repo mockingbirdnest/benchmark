@@ -148,4 +148,6 @@ static_assert(std::is_same<
   typename std::iterator_traits<benchmark::State::StateIterator>::value_type,
   typename benchmark::State::StateIterator::value_type>::value, "");
 
+#if !defined(_MSC_VER)
 BENCHMARK_MAIN();
+#endif

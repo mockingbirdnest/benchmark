@@ -242,4 +242,6 @@ BENCHMARK(BM_DenseThreadRanges)->Arg(1)->DenseThreadRange(1, 3);
 BENCHMARK(BM_DenseThreadRanges)->Arg(2)->DenseThreadRange(1, 4, 2);
 BENCHMARK(BM_DenseThreadRanges)->Arg(3)->DenseThreadRange(5, 14, 3);
 
+#if !defined(_MSC_VER)
 BENCHMARK_MAIN();
+#endif
