@@ -59,7 +59,7 @@ class CheckHandler {
      : ::benchmark::internal::CheckHandler(#b, __FILE__, __func__, __LINE__) \
            .GetLog())
 #else
-#define CHECK(b) ::benchmark::internal::GetNullLogInstance()
+#define CHECK(b) while (false) ::benchmark::internal::GetNullLogInstance()
 #endif
 
 // clang-format off
