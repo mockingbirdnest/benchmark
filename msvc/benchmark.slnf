@@ -1,0 +1,8 @@
+{
+  "solution": {
+    "path": "benchmark.sln",
+    "projects": [
+      "benchmark\\benchmark.vcxproj",
+    ]
+  }
+}
