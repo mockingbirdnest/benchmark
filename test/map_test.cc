@@ -53,3 +53,7 @@ BENCHMARK_DEFINE_F(MapFixture, Lookup)(benchmark::State& state) {
   state.SetItemsProcessed(state.iterations() * size);
 }
 BENCHMARK_REGISTER_F(MapFixture, Lookup)->Range(1 << 3, 1 << 12);
+
+#if !defined(_MSC_VER)
+BENCHMARK_MAIN()
+#endif
