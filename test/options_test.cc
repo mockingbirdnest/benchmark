@@ -61,3 +61,7 @@ void BM_explicit_iteration_count(benchmark::State& state) {
 
 }
 BENCHMARK(BM_explicit_iteration_count)->Iterations(42);
+
+#if !defined(_MSC_VER)
+BENCHMARK_MAIN()
+#endif
