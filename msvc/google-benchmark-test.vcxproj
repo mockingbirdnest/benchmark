@@ -91,7 +91,6 @@
     <ClCompile Include="..\test\basic_test.cc" />
     <ClCompile Include="..\test\benchmark_test.cc" />
     <ClCompile Include="..\test\fixture_test.cc" />
-    <ClCompile Include="..\test\main.cpp" />
     <ClCompile Include="..\test\map_test.cc" />
     <ClCompile Include="..\test\multiple_ranges_test.cc" />
     <ClCompile Include="..\test\options_test.cc" />
