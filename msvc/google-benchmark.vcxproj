@@ -16,6 +16,8 @@
     <ClInclude Include="..\include\benchmark\reporter.h" />
     <ClInclude Include="..\src\arraysize.h" />
     <ClInclude Include="..\src\benchmark_api_internal.h" />
+    <ClInclude Include="..\src\benchmark_register.h" />
+    <ClInclude Include="..\src\benchmark_runner.h" />
     <ClInclude Include="..\src\check.h" />
     <ClInclude Include="..\src\colorprint.h" />
     <ClInclude Include="..\src\commandlineflags.h" />
@@ -31,11 +33,16 @@
     <ClInclude Include="..\src\statistics.h" />
     <ClInclude Include="..\src\string_util.h" />
     <ClInclude Include="..\src\sysinfo.h" />
+    <ClInclude Include="..\src\thread_manager.h" />
+    <ClInclude Include="..\src\thread_timer.h" />
     <ClInclude Include="..\src\timers.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\benchmark.cc" />
+    <ClCompile Include="..\src\benchmark_api_internal.cc" />
+    <ClCompile Include="..\src\benchmark_main.cc" />
     <ClCompile Include="..\src\benchmark_register.cc" />
+    <ClCompile Include="..\src\benchmark_runner.cc" />
     <ClCompile Include="..\src\colorprint.cc" />
     <ClCompile Include="..\src\commandlineflags.cc" />
     <ClCompile Include="..\src\complexity.cc" />
