@@ -26,5 +26,5 @@ BENCHMARK_TEMPLATE_DEFINE_F(MyTemplatedFixture, Bar, double)(benchmark::State& s
 BENCHMARK_REGISTER_F(MyTemplatedFixture, Bar);
 
 #if !defined(_MSC_VER)
-BENCHMARK_MAIN()
+BENCHMARK_MAIN();
 #endif
