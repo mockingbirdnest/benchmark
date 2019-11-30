@@ -9,7 +9,7 @@
 namespace benchmark {
 namespace internal {
 
-typedef std::basic_ostream<char>&(EndLType)(std::basic_ostream<char>&);
+typedef std::basic_ostream<char>&(__cdecl EndLType)(std::basic_ostream<char>&);
 
 class LogType {
   friend LogType& GetNullLogInstance();
