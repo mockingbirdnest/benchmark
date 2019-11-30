@@ -30,7 +30,7 @@
 namespace benchmark {
 namespace internal {
 
-typedef void(AbortHandlerT)();
+typedef void(__cdecl AbortHandlerT)();
 
 BENCHMARK_EXPORT
 AbortHandlerT*& GetAbortHandler();
