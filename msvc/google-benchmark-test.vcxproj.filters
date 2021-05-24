@@ -24,27 +24,6 @@
     <ClCompile Include="..\test\benchmark_test.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\test\clobber_memory_assembly_test.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\test\complexity_test.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\test\diagnostics_test.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\test\display_aggregates_only_test.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\test\donotoptimize_assembly_test.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\test\donotoptimize_test.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\test\filter_test.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\test\fixture_test.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -57,43 +36,16 @@
     <ClCompile Include="..\test\map_test.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\test\memory_manager_test.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\test\multiple_ranges_test.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\test\options_test.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\test\perf_counters_test.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\test\register_benchmark_test.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\test\reporter_output_test.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\test\report_aggregates_only_test.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\test\skip_with_error_test.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\test\state_assembly_test.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\test\templated_fixture_test.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\test\user_counters_tabular_test.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\test\user_counters_test.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\test\user_counters_thousands_test.cc">
+    <ClCompile Include="..\test\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

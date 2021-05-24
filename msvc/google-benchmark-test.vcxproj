@@ -3,40 +3,35 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{ABB7BEF8-2C48-4967-A703-7B6FB9AB831F}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
   </PropertyGroup>
   <Import Project="$(SolutionDir)benchmark.props" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\test\args_product_test.cc" />
     <ClCompile Include="..\test\basic_test.cc" />
     <ClCompile Include="..\test\benchmark_test.cc" />
-    <ClCompile Include="..\test\clobber_memory_assembly_test.cc" />
-    <ClCompile Include="..\test\complexity_test.cc" />
-    <ClCompile Include="..\test\diagnostics_test.cc" />
-    <ClCompile Include="..\test\display_aggregates_only_test.cc" />
-    <ClCompile Include="..\test\donotoptimize_assembly_test.cc" />
-    <ClCompile Include="..\test\donotoptimize_test.cc" />
-    <ClCompile Include="..\test\filter_test.cc" />
     <ClCompile Include="..\test\fixture_test.cc" />
     <ClCompile Include="..\test\internal_threading_test.cc" />
     <ClCompile Include="..\test\link_main_test.cc" />
+    <ClCompile Include="..\test\main.cpp" />
     <ClCompile Include="..\test\map_test.cc" />
-    <ClCompile Include="..\test\memory_manager_test.cc" />
     <ClCompile Include="..\test\multiple_ranges_test.cc" />
     <ClCompile Include="..\test\options_test.cc" />
-    <ClCompile Include="..\test\perf_counters_test.cc" />
-    <ClCompile Include="..\test\register_benchmark_test.cc" />
-    <ClCompile Include="..\test\reporter_output_test.cc" />
-    <ClCompile Include="..\test\report_aggregates_only_test.cc" />
-    <ClCompile Include="..\test\skip_with_error_test.cc" />
-    <ClCompile Include="..\test\state_assembly_test.cc" />
     <ClCompile Include="..\test\templated_fixture_test.cc" />
-    <ClCompile Include="..\test\user_counters_tabular_test.cc" />
-    <ClCompile Include="..\test\user_counters_test.cc" />
-    <ClCompile Include="..\test\user_counters_thousands_test.cc" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="google-benchmark.vcxproj">
