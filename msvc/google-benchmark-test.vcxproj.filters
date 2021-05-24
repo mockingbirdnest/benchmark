@@ -15,13 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\test\benchmark_test.cc">
+    <ClCompile Include="..\test\args_product_test.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\test\basic_test.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\test\benchmark_test.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\test\fixture_test.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\internal_threading_test.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\link_main_test.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\test\map_test.cc">
@@ -34,6 +43,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\test\templated_fixture_test.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
