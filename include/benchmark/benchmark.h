@@ -1310,13 +1310,13 @@ class Fixture : public internal::Benchmark {
 
 // Helper macro to create a main routine in a test that runs the benchmarks
 #define BENCHMARK_MAIN()                                                \
-  int main(int argc, char** argv) {                                     \
+  int __cdecl main(int argc, char** argv) {                                     \
     ::benchmark::Initialize(&argc, argv);                               \
     if (::benchmark::ReportUnrecognizedArguments(argc, argv)) return 1; \
     ::benchmark::RunSpecifiedBenchmarks();                              \
     return 0;                                                           \
   }                                                                     \
-  int main(int, char**)
+  int __cdecl main(int, char**)
 
 // ------------------------------------------------------
 // Benchmark Reporters
