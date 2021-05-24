@@ -181,4 +181,6 @@ BENCHMARK(BM_MainThreadAndWorkerThread)
 // ---------------------------- TEST CASES END ----------------------------- //
 // ========================================================================= //
 
+#if !defined(_MSC_VER)
 int main(int argc, char* argv[]) { RunOutputTests(argc, argv); }
+#endif
