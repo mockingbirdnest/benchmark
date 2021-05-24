@@ -74,4 +74,6 @@ BENCHMARK_REGISTER_F(ArgsProductFixture, Empty)
     ->ArgsProduct({{1, 2}, {15}, {3, 7, 10}, {8, 9}})
     ->Args({4, 5, 6, 11});
 
+#if !defined(_MSC_VER)
 BENCHMARK_MAIN();
+#endif
