@@ -11,9 +11,10 @@
   <Import Project="$(SolutionDir)benchmark.props" />
   <ItemGroup>
     <ClInclude Include="..\include\benchmark\benchmark.h" />
-    <ClInclude Include="..\include\benchmark\benchmark_api.h" />
-    <ClInclude Include="..\include\benchmark\reporter.h" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="..\src\arraysize.h" />
+    <ClInclude Include="..\src\benchmark_adjust_repetitions.h" />
     <ClInclude Include="..\src\benchmark_api_internal.h" />
     <ClInclude Include="..\src\benchmark_register.h" />
     <ClInclude Include="..\src\benchmark_runner.h" />
@@ -26,20 +27,19 @@
     <ClInclude Include="..\src\internal_macros.h" />
     <ClInclude Include="..\src\log.h" />
     <ClInclude Include="..\src\mutex.h" />
+    <ClInclude Include="..\src\perf_counters.h" />
     <ClInclude Include="..\src\re.h" />
     <ClInclude Include="..\src\sleep.h" />
-    <ClInclude Include="..\src\stat.h" />
     <ClInclude Include="..\src\statistics.h" />
     <ClInclude Include="..\src\string_util.h" />
-    <ClInclude Include="..\src\sysinfo.h" />
     <ClInclude Include="..\src\thread_manager.h" />
     <ClInclude Include="..\src\thread_timer.h" />
     <ClInclude Include="..\src\timers.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\src\benchmark.cc" />
+    <ClCompile Include="..\src\benchmark_adjust_repetitions.cc" />
     <ClCompile Include="..\src\benchmark_api_internal.cc" />
     <ClCompile Include="..\src\benchmark_main.cc" />
+    <ClCompile Include="..\src\benchmark_name.cc" />
     <ClCompile Include="..\src\benchmark_register.cc" />
     <ClCompile Include="..\src\benchmark_runner.cc" />
     <ClCompile Include="..\src\colorprint.cc" />
@@ -49,6 +49,7 @@
     <ClCompile Include="..\src\counter.cc" />
     <ClCompile Include="..\src\csv_reporter.cc" />
     <ClCompile Include="..\src\json_reporter.cc" />
+    <ClCompile Include="..\src\perf_counters.cc" />
     <ClCompile Include="..\src\reporter.cc" />
     <ClCompile Include="..\src\sleep.cc" />
     <ClCompile Include="..\src\statistics.cc" />
