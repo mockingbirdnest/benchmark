@@ -32,6 +32,6 @@ jobs:
     - name: Upload artifact
       uses: mockingbirdnest/actions/windows/upload_artifact@main
       with:
-        name: gipfeli
+        name: benchmark
         headers_glob: ${{ env.PRINCIPIA_HEADERS_BENCHMARK }}
         solution_directory: ${{ env.PRINCIPIA_MSVC_BENCHMARK }}
