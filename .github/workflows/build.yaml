@@ -7,7 +7,7 @@ on:
     branches: [ '*' ]
 
 env:
-  PRINCIPIA_HEADERS_BENCHMARK include/**/*.h
+  PRINCIPIA_HEADERS_BENCHMARK: include/**/*.h
   PRINCIPIA_MSVC_BENCHMARK: msvc
 
 jobs:
