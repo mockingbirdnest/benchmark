@@ -20,6 +20,11 @@ jobs:
     - name: Checkout source files
       uses: actions/checkout@v3
 
+    - name: Initialize build environment
+      uses: mockingbirdnest/actions/windows/initialize_build@main
+      with:
+        configuration: ${{ matrix.configuration }}
+
     - name: Rebuild ${{ matrix.configuration }}
       uses: mockingbirdnest/actions/windows/rebuild@main
       with:
