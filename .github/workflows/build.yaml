@@ -36,5 +36,6 @@ jobs:
       uses: mockingbirdnest/actions/windows/upload_artifact@main
       with:
         name: benchmark
+        configuration: ${{ matrix.configuration }}
         headers_directory: ${{ env.PRINCIPIA_HEADERS_BENCHMARK }}
         solution_directory: ${{ env.PRINCIPIA_MSVC_BENCHMARK }}
