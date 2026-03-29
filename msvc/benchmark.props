@@ -116,6 +116,12 @@
     <Import Project="portability_macros.props" />
   </ImportGroup>
 
+  <ImportGroup Condition="$(ProjectName) != 'google-benchmark'">
+    <Import Project="$(SolutionDir)..\..\googletest\googletest\msvc\portability_macros.props" />
+    <Import Project="$(SolutionDir)google_googletest.props" />
+    <Import Project="$(SolutionDir)google_googlemock_main.props" />
+  </ImportGroup>
+
   <!--This import must be at the end.-->
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 </Project>
