@@ -6,7 +6,7 @@
 #include "benchmark/registration.h"
 #include "benchmark/state.h"
 
-#define FIXTURE_BECHMARK_NAME MyFixture
+#define FIXTURE_BECHMARK_NAME MyFixture_Principia
 
 class FIXTURE_BECHMARK_NAME : public ::benchmark::Fixture {
  public:
