@@ -89,7 +89,7 @@ class CheckHandler {
            std::string_view(__func__), __LINE__)             \
            .GetLog())
 #else
-#define BM_CHECK(b) ::benchmark::internal::GetNullLogInstance()
+#define BM_CHECK(b) while (false) ::benchmark::internal::GetNullLogInstance()
 #endif
 
 // clang-format off
