@@ -61,7 +61,8 @@
   <ItemDefinitionGroup>
     <ClCompile>
       <CallingConvention>vectorcall</CallingConvention>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
       <WarningLevel>Level3</WarningLevel>
       <AdditionalIncludeDirectories>$(SolutionDir)\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_USRDLL;GOOGLEBENCHMARK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
