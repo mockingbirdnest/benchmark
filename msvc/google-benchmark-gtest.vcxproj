@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <ProjectGuid>{E6EC3A28-AC80-4E53-968E-0CA0AD3FB51F}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)benchmark.props" />
+  <ItemGroup>
+    <ClCompile Include="..\test\benchmark_gtest.cc" />
+    <ClCompile Include="..\test\benchmark_name_gtest.cc" />
+    <ClCompile Include="..\test\benchmark_random_interleaving_gtest.cc" />
+    <ClCompile Include="..\test\benchmark_setup_teardown_cb_types_gtest.cc" />
+    <ClCompile Include="..\test\commandlineflags_gtest.cc" />
+    <ClCompile Include="..\test\memory_results_gtest.cc" />
+    <ClCompile Include="..\test\min_time_parse_gtest.cc" />
+    <ClCompile Include="..\test\perf_counters_gtest.cc" />
+    <ClCompile Include="..\test\profiler_manager_gtest.cc" />
+    <ClCompile Include="..\test\statistics_gtest.cc" />
+    <ClCompile Include="..\test\string_util_gtest.cc" />
+    <ClCompile Include="..\test\time_unit_gtest.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="google-benchmark.vcxproj">
+      <Project>{ef4de73e-ee11-4128-93eb-60b07e650ef2}</Project>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

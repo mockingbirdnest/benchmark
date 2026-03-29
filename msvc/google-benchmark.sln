@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28917.182
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37027.9 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "google-benchmark", "google-benchmark.vcxproj", "{EF4DE73E-EE11-4128-93EB-60B07E650EF2}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "google-benchmark-test", "google-benchmark-test.vcxproj", "{ABB7BEF8-2C48-4967-A703-7B6FB9AB831F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "google-benchmark-benchmark-test", "google-benchmark-benchmark-test.vcxproj", "{235F99D0-0B87-4001-B7B4-521D73AEEC1F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "google-benchmark-gtest", "google-benchmark-gtest.vcxproj", "{E6EC3A28-AC80-4E53-968E-0CA0AD3FB51F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "google-benchmark-other-test", "google-benchmark-other-test.vcxproj", "{5A349604-3183-47CC-A0DA-61F482980639}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +21,18 @@ Global
 		{EF4DE73E-EE11-4128-93EB-60B07E650EF2}.Debug|x64.Build.0 = Debug|x64
 		{EF4DE73E-EE11-4128-93EB-60B07E650EF2}.Release|x64.ActiveCfg = Release|x64
 		{EF4DE73E-EE11-4128-93EB-60B07E650EF2}.Release|x64.Build.0 = Release|x64
-		{ABB7BEF8-2C48-4967-A703-7B6FB9AB831F}.Debug|x64.ActiveCfg = Debug|x64
-		{ABB7BEF8-2C48-4967-A703-7B6FB9AB831F}.Debug|x64.Build.0 = Debug|x64
-		{ABB7BEF8-2C48-4967-A703-7B6FB9AB831F}.Release|x64.ActiveCfg = Release|x64
-		{ABB7BEF8-2C48-4967-A703-7B6FB9AB831F}.Release|x64.Build.0 = Release|x64
+		{235F99D0-0B87-4001-B7B4-521D73AEEC1F}.Debug|x64.ActiveCfg = Debug|x64
+		{235F99D0-0B87-4001-B7B4-521D73AEEC1F}.Debug|x64.Build.0 = Debug|x64
+		{235F99D0-0B87-4001-B7B4-521D73AEEC1F}.Release|x64.ActiveCfg = Release|x64
+		{235F99D0-0B87-4001-B7B4-521D73AEEC1F}.Release|x64.Build.0 = Release|x64
+		{E6EC3A28-AC80-4E53-968E-0CA0AD3FB51F}.Debug|x64.ActiveCfg = Debug|x64
+		{E6EC3A28-AC80-4E53-968E-0CA0AD3FB51F}.Debug|x64.Build.0 = Debug|x64
+		{E6EC3A28-AC80-4E53-968E-0CA0AD3FB51F}.Release|x64.ActiveCfg = Release|x64
+		{E6EC3A28-AC80-4E53-968E-0CA0AD3FB51F}.Release|x64.Build.0 = Release|x64
+		{5A349604-3183-47CC-A0DA-61F482980639}.Debug|x64.ActiveCfg = Debug|x64
+		{5A349604-3183-47CC-A0DA-61F482980639}.Debug|x64.Build.0 = Debug|x64
+		{5A349604-3183-47CC-A0DA-61F482980639}.Release|x64.ActiveCfg = Release|x64
+		{5A349604-3183-47CC-A0DA-61F482980639}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

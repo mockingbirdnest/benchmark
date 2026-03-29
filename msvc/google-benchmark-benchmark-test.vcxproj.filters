@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{6CBFA2E9-F4E1-4D45-879B-3FFE4F92DB2B}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{C692B0F2-3CAC-47D5-85E8-893BCAB0BFEA}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{161E58CD-A5C7-49E6-A852-376176B274AB}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\test\args_product_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\basic_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\benchmark_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\fixture_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\map_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\multiple_ranges_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\options_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\overload_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\templated_fixture_method_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\templated_fixture_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

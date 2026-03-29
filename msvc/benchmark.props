@@ -46,7 +46,7 @@
   <!--Target.-->
   <PropertyGroup>
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <ConfigurationType Condition="$(ProjectName)=='google-benchmark-test'">Application</ConfigurationType>
+    <ConfigurationType Condition="$(ProjectName)!='google-benchmark'">Application</ConfigurationType>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="$(ConfigurationType)==Application">
     <Link>

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{523F77E7-8D5D-43FC-9BBB-6E0F8472E7D2}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{EAA545F3-80C9-4EC7-98E9-DE0767B5B009}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{AAA7730F-027A-4338-BDAF-232FC6795B7C}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\test\benchmark_min_time_flag_iters_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\benchmark_min_time_flag_time_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\benchmark_setup_teardown_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\clobber_memory_assembly_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\complexity_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\cxx11_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\diagnostics_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\display_aggregates_only_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\donotoptimize_assembly_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\donotoptimize_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\filter_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\internal_threading_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\link_main_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\locale_impermeability_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\manual_threading_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\memory_manager_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\perf_counters_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\profiler_manager_iterations_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\profiler_manager_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\register_benchmark_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\repetitions_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\report_aggregates_only_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\reporter_output_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\skip_with_error_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\spec_arg_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\spec_arg_verbosity_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\state_assembly_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\user_counters_tabular_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\user_counters_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\user_counters_thousands_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\user_counters_threads_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

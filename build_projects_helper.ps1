@@ -43,20 +43,52 @@ Foreach-Object {
 $filterssources += "  </ItemGroup>`r`n"
 $vcxprojsources += "  </ItemGroup>`r`n"
 
-$filterstests = "  <ItemGroup>`r`n"
-$vcxprojtests = "  <ItemGroup>`r`n"
-Get-ChildItem "$dir\test\*" -Include *_test.cc | `
+$filtersgtests = "  <ItemGroup>`r`n"
+$vcxprojgtests = "  <ItemGroup>`r`n"
+Get-ChildItem "$dir\test\*" -Include *_gtest.cc | `
 Foreach-Object {
   $msvcrelativepath = $_.FullName -replace ".*test\\", "..\test\"
-  $filterstests +=
+  $filtersgtests +=
       "    <ClCompile Include=`"$msvcrelativepath`">`r`n" +
       "       <Filter>Source Files</Filter>`r`n" +
       "    </ClCompile>`r`n"
-  $vcxprojtests +=
+  $vcxprojgtests +=
       "    <ClCompile Include=`"$msvcrelativepath`" />`r`n"
 }
-$filterstests += "  </ItemGroup>`r`n"
-$vcxprojtests += "  </ItemGroup>`r`n"
+$filtersgtests += "  </ItemGroup>`r`n"
+$vcxprojgtests += "  </ItemGroup>`r`n"
+
+$filtersbtests = "  <ItemGroup>`r`n"
+$vcxprojbtests = "  <ItemGroup>`r`n"
+Get-ChildItem "$dir\test\*" -Include *_test.cc | `
+Select-String -Pattern "BENCHMARK_MAIN" | `
+Foreach-Object {
+  $msvcrelativepath = $_.Path -replace ".*test\\", "..\test\"
+  $filtersbtests +=
+      "    <ClCompile Include=`"$msvcrelativepath`">`r`n" +
+      "       <Filter>Source Files</Filter>`r`n" +
+      "    </ClCompile>`r`n"
+  $vcxprojbtests +=
+      "    <ClCompile Include=`"$msvcrelativepath`" />`r`n"
+}
+$filtersbtests += "  </ItemGroup>`r`n"
+$vcxprojbtests += "  </ItemGroup>`r`n"
+
+$filtersotests = "  <ItemGroup>`r`n"
+$vcxprojotests = "  <ItemGroup>`r`n"
+Get-ChildItem "$dir\test\*" -Include *_test.cc | `
+Where-Object { !( $_ | Select-String -Pattern "BENCHMARK_MAIN" -Quiet) } | `
+Foreach-Object {
+  $msvcrelativepath = $_.FullName -replace ".*test\\", "..\test\"
+  $filtersotests +=
+      "    <ClCompile Include=`"$msvcrelativepath`">`r`n" +
+      "       <Filter>Source Files</Filter>`r`n" +
+      "    </ClCompile>`r`n"
+  $vcxprojotests +=
+      "    <ClCompile Include=`"$msvcrelativepath`" />`r`n"
+}
+$filtersotests += "  </ItemGroup>`r`n"
+$vcxprojotests += "  </ItemGroup>`r`n"
 
 $dirfilterspath = [string]::format("{0}\benchmark_vcxproj_filters.txt", $dir)
 [system.io.file]::writealltext(
@@ -64,10 +96,22 @@ $dirfilterspath = [string]::format("{0}\benchmark_vcxproj_filters.txt", $dir)
     $filtersheaders + $filterssources,
     [system.text.encoding]::utf8)
 
-$testsfilterspath = [string]::format("{0}\benchmark_tests_vcxproj_filters.txt", $dir)
+$gtestsfilterspath = [string]::format("{0}\benchmark_gtest_vcxproj_filters.txt", $dir)
 [system.io.file]::writealltext(
-    $testsfilterspath,
-    $filterstests,
+    $gtestsfilterspath,
+    $filtersgtests,
+    [system.text.encoding]::utf8)
+
+$btestsfilterspath = [string]::format("{0}\benchmark_benchmark_test_vcxproj_filters.txt", $dir)
+[system.io.file]::writealltext(
+    $btestsfilterspath,
+    $filtersbtests,
+    [system.text.encoding]::utf8)
+
+$otestsfilterspath = [string]::format("{0}\benchmark_other_test_vcxproj_filters.txt", $dir)
+[system.io.file]::writealltext(
+    $otestsfilterspath,
+    $filtersotests,
     [system.text.encoding]::utf8)
 
 $dirvcxprojpath = [string]::format("{0}\benchmark_vcxproj.txt", $dir)
@@ -76,8 +120,20 @@ $dirvcxprojpath = [string]::format("{0}\benchmark_vcxproj.txt", $dir)
     $vcxprojheaders + $vcxprojsources,
     [system.text.encoding]::utf8)
 
-$testsvcxprojpath = [string]::format("{0}\benchmark_tests_vcxproj.txt", $dir)
+$gtestsvcxprojpath = [string]::format("{0}\benchmark_gtest_vcxproj.txt", $dir)
 [system.io.file]::writealltext(
-    $testsvcxprojpath,
-    $vcxprojtests,
+    $gtestsvcxprojpath,
+    $vcxprojgtests,
+    [system.text.encoding]::utf8)
+
+$btestsvcxprojpath = [string]::format("{0}\benchmark_benchmark_test_vcxproj.txt", $dir)
+[system.io.file]::writealltext(
+    $btestsvcxprojpath,
+    $vcxprojbtests,
+    [system.text.encoding]::utf8)
+
+$otestsvcxprojpath = [string]::format("{0}\benchmark_other_test_vcxproj.txt", $dir)
+[system.io.file]::writealltext(
+    $otestsvcxprojpath,
+    $vcxprojotests,
     [system.text.encoding]::utf8)
