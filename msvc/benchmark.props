@@ -38,7 +38,9 @@
   <PropertyGroup>
     <PlatformToolset>v143</PlatformToolset>
     <OutDir>$(SolutionDir)$(Configuration)\$(Platform)\</OutDir>
+    <OutDir Condition="$(ProjectName)!='google-benchmark'">$(SolutionDir)$(ProjectName)\$(Configuration)\$(Platform)\</OutDir>
     <IntDir>$(Configuration)\$(Platform)\</IntDir>
+    <IntDir Condition="$(ProjectName)!='google-benchmark'">$(ProjectName)\$(Configuration)\$(Platform)\</IntDir>
   </PropertyGroup>
 
   <!--Target.-->
@@ -65,7 +67,7 @@
       <LanguageStandard_C>stdc17</LanguageStandard_C>
       <WarningLevel>Level3</WarningLevel>
       <AdditionalIncludeDirectories>$(SolutionDir)\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_USRDLL;GOOGLEBENCHMARK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_USRDLL;benchmark_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
