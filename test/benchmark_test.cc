@@ -305,4 +305,6 @@ const auto BM_templated_test_double = BM_templated_test<std::complex<double>>;
 BENCHMARK(BM_templated_test_double);
 }  // end namespace
 
+#ifndef PRINCIPIA
 BENCHMARK_MAIN();
+#endif  // PRINCIPIA

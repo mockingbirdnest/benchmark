@@ -34,4 +34,6 @@ void MyTemplatedOverloadedBenchmark(benchmark::State& state) {
 BENCHMARK_TEMPLATE(MyTemplatedOverloadedBenchmark, 1);
 }  // end namespace
 
+#ifndef PRINCIPIA
 BENCHMARK_MAIN();
+#endif  // PRINCIPIA

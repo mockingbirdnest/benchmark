@@ -180,4 +180,6 @@ static_assert(
     "");
 }  // end namespace
 
+#ifndef PRINCIPIA
 BENCHMARK_MAIN();
+#endif  // PRINCIPIA

@@ -58,4 +58,6 @@ BENCHMARK_DEFINE_F(MapFixture, Lookup)(benchmark::State& state) {
 }
 BENCHMARK_REGISTER_F(MapFixture, Lookup)->Range(1 << 3, 1 << 12);
 
+#ifndef PRINCIPIA
 BENCHMARK_MAIN();
+#endif  // PRINCIPIA
