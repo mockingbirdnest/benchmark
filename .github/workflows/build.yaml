@@ -1,0 +1,41 @@
+name: Build
+
+on:
+  push:
+    branches: [ '*' ]
+  pull_request:
+    branches: [ '*' ]
+  workflow_dispatch:
+
+env:
+  PRINCIPIA_HEADERS_BENCHMARK: include
+  PRINCIPIA_MSVC_BENCHMARK: msvc
+
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+        matrix:
+          configuration: [Debug, Release]
+    steps:
+    - name: Checkout source files
+      uses: actions/checkout@v3
+
+    - name: Initialize build environment
+      uses: mockingbirdnest/actions/windows/initialize_build@main
+      with:
+        configuration: ${{ matrix.configuration }}
+
+    - name: Rebuild ${{ matrix.configuration }}
+      uses: mockingbirdnest/actions/windows/rebuild@main
+      with:
+        configuration: ${{ matrix.configuration }}
+        solution_directory: ${{ env.PRINCIPIA_MSVC_BENCHMARK }}
+
+    - name: Upload artifact
+      uses: mockingbirdnest/actions/windows/upload_artifact@main
+      with:
+        name: benchmark
+        configuration: ${{ matrix.configuration }}
+        headers_directory: ${{ env.PRINCIPIA_HEADERS_BENCHMARK }}
+        solution_directory: ${{ env.PRINCIPIA_MSVC_BENCHMARK }}
