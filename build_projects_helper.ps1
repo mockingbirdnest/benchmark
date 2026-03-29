@@ -76,7 +76,7 @@ $vcxprojbtests += "  </ItemGroup>`r`n"
 
 $filtersotests = "  <ItemGroup>`r`n"
 $vcxprojotests = "  <ItemGroup>`r`n"
-Get-ChildItem "$dir\test\*" -Include *_test.cc | `
+Get-ChildItem "$dir\test\*" -Include *_test.cc,*output_test_helper.cc -Exclude *cxx11_test.cc | `
 Where-Object { !( $_ | Select-String -Pattern "BENCHMARK_MAIN" -Quiet) } | `
 Foreach-Object {
   $msvcrelativepath = $_.FullName -replace ".*test\\", "..\test\"

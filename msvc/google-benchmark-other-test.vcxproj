@@ -15,7 +15,6 @@
     <ClCompile Include="..\test\benchmark_setup_teardown_test.cc" />
     <ClCompile Include="..\test\clobber_memory_assembly_test.cc" />
     <ClCompile Include="..\test\complexity_test.cc" />
-    <ClCompile Include="..\test\cxx11_test.cc" />
     <ClCompile Include="..\test\diagnostics_test.cc" />
     <ClCompile Include="..\test\display_aggregates_only_test.cc" />
     <ClCompile Include="..\test\donotoptimize_assembly_test.cc" />
@@ -26,6 +25,7 @@
     <ClCompile Include="..\test\locale_impermeability_test.cc" />
     <ClCompile Include="..\test\manual_threading_test.cc" />
     <ClCompile Include="..\test\memory_manager_test.cc" />
+    <ClCompile Include="..\test\output_test_helper.cc" />
     <ClCompile Include="..\test\perf_counters_test.cc" />
     <ClCompile Include="..\test\profiler_manager_iterations_test.cc" />
     <ClCompile Include="..\test\profiler_manager_test.cc" />

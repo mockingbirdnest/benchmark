@@ -30,9 +30,6 @@
     <ClCompile Include="..\test\complexity_test.cc">
        <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\test\cxx11_test.cc">
-       <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\test\diagnostics_test.cc">
        <Filter>Source Files</Filter>
     </ClCompile>
@@ -61,6 +58,9 @@
        <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\test\memory_manager_test.cc">
+       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\test\output_test_helper.cc">
        <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\test\perf_counters_test.cc">
