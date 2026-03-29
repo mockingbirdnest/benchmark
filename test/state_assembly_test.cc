@@ -1,3 +1,4 @@
+#if !defined(_MSC_VER)
 #include "benchmark/state.h"
 #include "benchmark/utils.h"
 
@@ -68,3 +69,4 @@ extern "C" int test_while_loop() {
   // CHECK: ret
   return 101;
 }
+#endif

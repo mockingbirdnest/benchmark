@@ -1,3 +1,4 @@
+#if !defined(_MSC_VER)
 #include "benchmark/macros.h"
 #include "benchmark/utils.h"
 
@@ -201,3 +202,4 @@ extern "C" void test_pointer_lvalue() {
   int* xp = &x;
   benchmark::DoNotOptimize(xp);
 }
+#endif
