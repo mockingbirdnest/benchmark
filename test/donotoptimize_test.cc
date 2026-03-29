@@ -27,6 +27,7 @@ struct BitRef {
   BitRef(int i, unsigned char& b) : index(i), byte(b) {}
 };
 
+#if !defined(_MSC_VER)
 int main(int argc, char* argv[]) {
   benchmark::MaybeReenterWithoutASLR(argc, argv);
 
@@ -68,3 +69,4 @@ int main(int argc, char* argv[]) {
   // Check that accept rvalue.
   benchmark::DoNotOptimize(BitRef::Make());
 }
+#endif

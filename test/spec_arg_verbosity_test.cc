@@ -15,6 +15,7 @@ void BM_Verbosity(benchmark::State& state) {
 BENCHMARK(BM_Verbosity);
 }  // end namespace
 
+#if !defined(_MSC_VER)
 int main(int argc, char** argv) {
   benchmark::MaybeReenterWithoutASLR(argc, argv);
 
@@ -47,3 +48,4 @@ int main(int argc, char** argv) {
   }
   return 0;
 }
+#endif

@@ -44,6 +44,7 @@ ADD_CASES(TC_JSONOut, {{"\"name\": \"BM_empty\",$"},
                        {"}", MR_Next}});
 ADD_CASES(TC_CSVOut, {{"^\"BM_empty\",%csv_report$"}});
 
+#if !defined(_MSC_VER)
 int main(int argc, char* argv[]) {
   benchmark::MaybeReenterWithoutASLR(argc, argv);
   std::unique_ptr<benchmark::MemoryManager> mm(new TestMemoryManager());
@@ -52,3 +53,4 @@ int main(int argc, char* argv[]) {
   RunOutputTests(argc, argv);
   benchmark::RegisterMemoryManager(nullptr);
 }
+#endif

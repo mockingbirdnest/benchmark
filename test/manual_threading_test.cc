@@ -169,6 +169,7 @@ BENCHMARK(BM_ManualThreading)
 // ---------------------------- TEST CASES END ----------------------------- //
 // ========================================================================= //
 
+#if !defined(_MSC_VER)
 int main(int argc, char* argv[]) {
   benchmark::MaybeReenterWithoutASLR(argc, argv);
   benchmark::Initialize(&argc, argv);
@@ -176,3 +177,4 @@ int main(int argc, char* argv[]) {
   benchmark::Shutdown();
   assert(numRunThreadsCalled_ > 0);
 }
+#endif

@@ -131,6 +131,7 @@ BENCHMARK(BM_WithRep)
     ->Repetitions(4);
 }  // namespace
 
+#if !defined(_MSC_VER)
 int main(int argc, char** argv) {
   benchmark::MaybeReenterWithoutASLR(argc, argv);
 
@@ -161,3 +162,4 @@ int main(int argc, char** argv) {
 
   return 0;
 }
+#endif

@@ -34,4 +34,6 @@ void MyTemplatedOverloadedBenchmark(benchmark::State& state) {
 BENCHMARK_TEMPLATE(MyTemplatedOverloadedBenchmark, 1);
 }  // end namespace
 
+#if !defined(_MSC_VER)
 BENCHMARK_MAIN();
+#endif

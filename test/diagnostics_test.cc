@@ -90,6 +90,7 @@ void BM_diagnostic_test_keep_running(benchmark::State& state) {
 BENCHMARK(BM_diagnostic_test_keep_running);
 }  // end namespace
 
+#if !defined(_MSC_VER)
 int main(int argc, char* argv[]) {
 #ifdef NDEBUG
   // This test is exercising functionality for debug builds, which are not
@@ -105,3 +106,4 @@ int main(int argc, char* argv[]) {
   benchmark::RunSpecifiedBenchmarks();
 #endif
 }
+#endif

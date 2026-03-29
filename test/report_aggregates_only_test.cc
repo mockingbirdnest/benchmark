@@ -20,6 +20,7 @@ void BM_SummaryRepeat(benchmark::State& state) {
 BENCHMARK(BM_SummaryRepeat)->Repetitions(3)->ReportAggregatesOnly();
 }  // end namespace
 
+#if !defined(_MSC_VER)
 int main(int argc, char* argv[]) {
   benchmark::MaybeReenterWithoutASLR(argc, argv);
   const std::string output = GetFileReporterOutput(argc, argv);
@@ -44,3 +45,4 @@ int main(int argc, char* argv[]) {
 
   return 0;
 }
+#endif
