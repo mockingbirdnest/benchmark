@@ -180,4 +180,6 @@ static_assert(
     "");
 }  // end namespace
 
+#if !defined(_MSC_VER)
 BENCHMARK_MAIN();
+#endif
