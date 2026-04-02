@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 #include "benchmark/benchmark_api.h"
 
 #if defined(_MSC_VER)
@@ -10,3 +11,4 @@
 #error "Trying to compile C++11 test with wrong C++ standard"
 #endif  // Non-MSVC
 #endif
+#endif  // PRINCIPIA
