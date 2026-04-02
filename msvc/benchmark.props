@@ -25,8 +25,7 @@
     <PrincipiaBenchmarkProject>true</PrincipiaBenchmarkProject>
     <PrincipiaBenchmarkProject Condition="$(ProjectName) != benchmark_tests">false</PrincipiaBenchmarkProject>
     <PrincipiaTestProject>true</PrincipiaTestProject>
-    <PrincipiaTestProject Condition="$(ProjectName) != gtests and
-                                     $(ProjectName) != other_tests">false</PrincipiaTestProject>
+    <PrincipiaTestProject Condition="$(ProjectName) != tests">false</PrincipiaTestProject>
     <!--Predicates.-->
     <PrincipiaMainProject>false</PrincipiaMainProject>
     <PrincipiaMainProject Condition="$(PrincipiaBenchmarkProject) or $(PrincipiaTestProject)">true</PrincipiaMainProject>
@@ -123,8 +122,7 @@
     <Import Project="$(SolutionDir)windows_libraries.props" />
   </ImportGroup>
 
-  <!--The 'other' test project is not a gtest project.-->
-  <ImportGroup Condition="$(ProjectName) == gtests">
+  <ImportGroup Condition="$(PrincipiaTestProject)">
     <Import Project="$(SolutionDir)..\..\googletest\googletest\msvc\portability_macros.props" />
     <Import Project="$(SolutionDir)google_googlemock_main.props" />
     <Import Project="$(SolutionDir)google_googletest.props" />

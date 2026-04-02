@@ -7,9 +7,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "benchmark", "benchmark\benc
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "benchmark_tests", "benchmark_tests\benchmark_tests.vcxproj", "{235F99D0-0B87-4001-B7B4-521D73AEEC1F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtests", "gtests\gtests.vcxproj", "{E6EC3A28-AC80-4E53-968E-0CA0AD3FB51F}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "other_tests", "other_tests\other_tests.vcxproj", "{5A349604-3183-47CC-A0DA-61F482980639}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tests", "tests\tests.vcxproj", "{E6EC3A28-AC80-4E53-968E-0CA0AD3FB51F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +27,6 @@ Global
 		{E6EC3A28-AC80-4E53-968E-0CA0AD3FB51F}.Debug|x64.Build.0 = Debug|x64
 		{E6EC3A28-AC80-4E53-968E-0CA0AD3FB51F}.Release|x64.ActiveCfg = Release|x64
 		{E6EC3A28-AC80-4E53-968E-0CA0AD3FB51F}.Release|x64.Build.0 = Release|x64
-		{5A349604-3183-47CC-A0DA-61F482980639}.Debug|x64.ActiveCfg = Debug|x64
-		{5A349604-3183-47CC-A0DA-61F482980639}.Debug|x64.Build.0 = Debug|x64
-		{5A349604-3183-47CC-A0DA-61F482980639}.Release|x64.ActiveCfg = Release|x64
-		{5A349604-3183-47CC-A0DA-61F482980639}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

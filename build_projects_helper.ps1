@@ -43,20 +43,20 @@ Foreach-Object {
 $filterssources += "  </ItemGroup>`r`n"
 $vcxprojsources += "  </ItemGroup>`r`n"
 
-$filtersgtests = "  <ItemGroup>`r`n"
-$vcxprojgtests = "  <ItemGroup>`r`n"
-Get-ChildItem "$dir\test\*" -Include *_gtest.cc | `
+$filterstests = "  <ItemGroup>`r`n"
+$vcxprojtests = "  <ItemGroup>`r`n"
+Get-ChildItem "$dir\test\*" -Include *_gtest.cc,*_test.cc | `
 Foreach-Object {
   $msvcrelativepath = $_.FullName -replace ".*test\\", "..\..\test\"
-  $filtersgtests +=
+  $filterstests +=
       "    <ClCompile Include=`"$msvcrelativepath`">`r`n" +
       "       <Filter>Source Files</Filter>`r`n" +
       "    </ClCompile>`r`n"
-  $vcxprojgtests +=
+  $vcxprojtests +=
       "    <ClCompile Include=`"$msvcrelativepath`" />`r`n"
 }
-$filtersgtests += "  </ItemGroup>`r`n"
-$vcxprojgtests += "  </ItemGroup>`r`n"
+$filterstests += "  </ItemGroup>`r`n"
+$vcxprojtests += "  </ItemGroup>`r`n"
 
 $filtersbtests = "  <ItemGroup>`r`n"
 $vcxprojbtests = "  <ItemGroup>`r`n"
@@ -74,32 +74,16 @@ Foreach-Object {
 $filtersbtests += "  </ItemGroup>`r`n"
 $vcxprojbtests += "  </ItemGroup>`r`n"
 
-$filtersotests = "  <ItemGroup>`r`n"
-$vcxprojotests = "  <ItemGroup>`r`n"
-Get-ChildItem "$dir\test\*" -Include *_test.cc,*output_test_helper.cc -Exclude *cxx11_test.cc | `
-Where-Object { !( $_ | Select-String -Pattern "BENCHMARK_MAIN" -Quiet) } | `
-Foreach-Object {
-  $msvcrelativepath = $_.FullName -replace ".*test\\", "..\..\test\"
-  $filtersotests +=
-      "    <ClCompile Include=`"$msvcrelativepath`">`r`n" +
-      "       <Filter>Source Files</Filter>`r`n" +
-      "    </ClCompile>`r`n"
-  $vcxprojotests +=
-      "    <ClCompile Include=`"$msvcrelativepath`" />`r`n"
-}
-$filtersotests += "  </ItemGroup>`r`n"
-$vcxprojotests += "  </ItemGroup>`r`n"
-
 $dirfilterspath = [string]::format("{0}\benchmark_vcxproj_filters.txt", $dir)
 [system.io.file]::writealltext(
     $dirfilterspath,
     $filtersheaders + $filterssources,
     [system.text.encoding]::utf8)
 
-$gtestsfilterspath = [string]::format("{0}\gtests_vcxproj_filters.txt", $dir)
+$testsfilterspath = [string]::format("{0}\tests_vcxproj_filters.txt", $dir)
 [system.io.file]::writealltext(
-    $gtestsfilterspath,
-    $filtersgtests,
+    $testsfilterspath,
+    $filterstests,
     [system.text.encoding]::utf8)
 
 $btestsfilterspath = [string]::format("{0}\benchmark_tests_vcxproj_filters.txt", $dir)
@@ -108,32 +92,20 @@ $btestsfilterspath = [string]::format("{0}\benchmark_tests_vcxproj_filters.txt",
     $filtersbtests,
     [system.text.encoding]::utf8)
 
-$otestsfilterspath = [string]::format("{0}\other_tests_vcxproj_filters.txt", $dir)
-[system.io.file]::writealltext(
-    $otestsfilterspath,
-    $filtersotests,
-    [system.text.encoding]::utf8)
-
 $dirvcxprojpath = [string]::format("{0}\benchmark_vcxproj.txt", $dir)
 [system.io.file]::writealltext(
     $dirvcxprojpath,
     $vcxprojheaders + $vcxprojsources,
     [system.text.encoding]::utf8)
 
-$gtestsvcxprojpath = [string]::format("{0}\gtests_vcxproj.txt", $dir)
+$testsvcxprojpath = [string]::format("{0}\tests_vcxproj.txt", $dir)
 [system.io.file]::writealltext(
-    $gtestsvcxprojpath,
-    $vcxprojgtests,
+    $testsvcxprojpath,
+    $vcxprojtests,
     [system.text.encoding]::utf8)
 
 $btestsvcxprojpath = [string]::format("{0}\benchmark_tests_vcxproj.txt", $dir)
 [system.io.file]::writealltext(
     $btestsvcxprojpath,
     $vcxprojbtests,
-    [system.text.encoding]::utf8)
-
-$otestsvcxprojpath = [string]::format("{0}\other_tests_vcxproj.txt", $dir)
-[system.io.file]::writealltext(
-    $otestsvcxprojpath,
-    $vcxprojotests,
     [system.text.encoding]::utf8)
