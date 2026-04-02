@@ -1,3 +1,6 @@
+// This test runs the registered benchmarks explicitly which interacts poorly
+// with other tests.
+#ifndef PRINCIPIA
 #include "benchmark/benchmark_api.h"
 #include "benchmark/reporter.h"
 #include "benchmark/state.h"
@@ -127,3 +130,4 @@ TEST_F(BenchmarkTest, NullptrTest) {
 #endif
 #endif
 }
+#endif  // PRINCIPIA
