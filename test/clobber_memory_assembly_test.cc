@@ -1,4 +1,4 @@
-#if !defined(_MSC_VER)
+#ifndef PRINCIPIA
 #include "benchmark/macros.h"
 #include "benchmark/utils.h"
 
@@ -64,4 +64,4 @@ extern "C" void test_redundant_read2() {
   // CHECK: movl %eax, [[DEST]]
   // CHECK: ret
 }
-#endif
+#endif  // PRINCIPIA

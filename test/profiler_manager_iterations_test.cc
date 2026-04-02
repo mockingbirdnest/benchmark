@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 #include <cassert>
 #include <cstdlib>
 #include <memory>
@@ -37,7 +38,6 @@ void BM_MyBench(benchmark::State& state) {
 BENCHMARK(BM_MyBench);
 }  // end namespace
 
-#if !defined(_MSC_VER)
 int main(int argc, char** argv) {
   benchmark::MaybeReenterWithoutASLR(argc, argv);
   // Make a fake argv and append the new --benchmark_profiler_iterations=<foo>
@@ -65,4 +65,4 @@ int main(int argc, char** argv) {
   benchmark::RegisterProfilerManager(nullptr);
   return 0;
 }
-#endif
+#endif  // PRINCIPIA

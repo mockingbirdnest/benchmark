@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 #include <algorithm>
 #include <cassert>
 #include <cmath>
@@ -71,7 +72,6 @@ void BM_FooBa(benchmark::State& state) {
 BENCHMARK(BM_FooBa);
 }  // end namespace
 
-#if !defined(_MSC_VER)
 int main(int argc, char** argv) {
   benchmark::MaybeReenterWithoutASLR(argc, argv);
 
@@ -121,4 +121,4 @@ int main(int argc, char** argv) {
 
   return 0;
 }
-#endif
+#endif  // PRINCIPIA

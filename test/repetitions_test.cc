@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 
 #include "benchmark/benchmark_api.h"
 #include "benchmark/registration.h"
@@ -215,9 +216,8 @@ ADD_CASES(TC_CSVOut, {{"^\"BM_ImplicitRepetitions_stddev\",%csv_report$"}});
 // --------------------------- TEST CASES END ------------------------------ //
 // ========================================================================= //
 
-#if !defined(_MSC_VER)
 int main(int argc, char* argv[]) {
   benchmark::MaybeReenterWithoutASLR(argc, argv);
   RunOutputTests(argc, argv);
 }
-#endif
+#endif  // PRINCIPIA

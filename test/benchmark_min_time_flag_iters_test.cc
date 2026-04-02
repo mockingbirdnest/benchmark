@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 #include <cassert>
 #include <cstdlib>
 #include <cstring>
@@ -45,7 +46,6 @@ void BM_MyBench(benchmark::State& state) {
 
 BENCHMARK(BM_MyBench);
 
-#if !defined(_MSC_VER)
 int main(int argc, char** argv) {
   benchmark::MaybeReenterWithoutASLR(argc, argv);
 
@@ -70,4 +70,4 @@ int main(int argc, char** argv) {
 
   return 0;
 }
-#endif
+#endif  // PRINCIPIA

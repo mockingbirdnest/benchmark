@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 #undef NDEBUG
 #include <cassert>
 #include <cmath>
@@ -272,9 +273,8 @@ ADD_COMPLEXITY_CASES(complexity_capture_name, complexity_capture_name + "_BigO",
 // --------------------------- TEST CASES END ------------------------------ //
 // ========================================================================= //
 
-#if !defined(_MSC_VER)
 int main(int argc, char* argv[]) {
   benchmark::MaybeReenterWithoutASLR(argc, argv);
   RunOutputTests(argc, argv);
 }
-#endif
+#endif  // PRINCIPIA

@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 // FIXME: WIP
 
 #include <cassert>
@@ -45,7 +46,6 @@ ADD_CASES(TC_JSONOut, {{"\"name\": \"BM_empty\",$"},
 ADD_CASES(TC_CSVOut, {{"^\"BM_empty\",%csv_report$"}});
 }  // end namespace
 
-#if !defined(_MSC_VER)
 int main(int argc, char* argv[]) {
   benchmark::MaybeReenterWithoutASLR(argc, argv);
   std::unique_ptr<TestProfilerManager> pm(new TestProfilerManager());
@@ -57,4 +57,4 @@ int main(int argc, char* argv[]) {
   assert(pm->start_called == 1);
   assert(pm->stop_called == 1);
 }
-#endif
+#endif  // PRINCIPIA

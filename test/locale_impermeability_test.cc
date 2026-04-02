@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 #undef NDEBUG
 #include <cassert>
 #include <cmath>
@@ -43,9 +44,8 @@ ADD_CASES(TC_CSVOut, {{"^\"BM_ostream/iterations:1000000/"
                        "manual_time\",1000000,%float,%float,ns,,,,,$"}});
 }  // end namespace
 
-#if !defined(_MSC_VER)
 int main(int argc, char* argv[]) {
   benchmark::MaybeReenterWithoutASLR(argc, argv);
   RunOutputTests(argc, argv);
 }
-#endif
+#endif  // PRINCIPIA

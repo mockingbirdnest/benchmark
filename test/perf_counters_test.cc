@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 #include <cstdarg>
 #undef NDEBUG
 
@@ -83,7 +84,6 @@ CHECK_BENCHMARK_RESULTS("BM_WithoutPauseResume", &SaveInstrCountWithoutResume);
 CHECK_BENCHMARK_RESULTS("BM_WithPauseResume", &SaveInstrCountWithResume);
 }  // end namespace
 
-#if !defined(_MSC_VER)
 int main(int argc, char* argv[]) {
   benchmark::MaybeReenterWithoutASLR(argc, argv);
   if (!benchmark::internal::PerfCounters::kSupported) {
@@ -97,4 +97,4 @@ int main(int argc, char* argv[]) {
   BM_CHECK_GT(withoutPauseResumeInstrCount, kIters);
   BM_CHECK_LT(withPauseResumeInstrCount, 1.5 * withoutPauseResumeInstrCount);
 }
-#endif
+#endif  // PRINCIPIA

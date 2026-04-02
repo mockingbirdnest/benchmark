@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 
 #undef NDEBUG
 
@@ -188,10 +189,9 @@ BENCHMARK(BM_MainThreadAndWorkerThread)
 // ---------------------------- TEST CASES END ----------------------------- //
 // ========================================================================= //
 
-#if !defined(_MSC_VER)
 int main(int argc, char* argv[]) {
   benchmark::MaybeReenterWithoutASLR(argc, argv);
 
   RunOutputTests(argc, argv);
 }
-#endif
+#endif  // PRINCIPIA
