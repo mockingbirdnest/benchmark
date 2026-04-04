@@ -23,7 +23,7 @@
   <PropertyGroup>
     <!--Special projects.  Must default to true for Clang Power Tools to get the includes right.-->
     <PrincipiaBenchmarkProject>true</PrincipiaBenchmarkProject>
-    <PrincipiaBenchmarkProject Condition="$(ProjectName) != benchmark_tests">false</PrincipiaBenchmarkProject>
+    <PrincipiaBenchmarkProject Condition="$(ProjectName) != benchmark_benchmarks">false</PrincipiaBenchmarkProject>
     <PrincipiaTestProject>true</PrincipiaTestProject>
     <PrincipiaTestProject Condition="$(ProjectName) != tests">false</PrincipiaTestProject>
     <!--Predicates.-->
