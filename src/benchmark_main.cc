@@ -15,5 +15,5 @@
 #include "benchmark/export.h"
 #include "benchmark/registration.h"
 
-BENCHMARK_EXPORT int main(int /*argc*/, char** /*argv*/);
+BENCHMARK_EXPORT int __CLRCALL_OR_CDECL main(int /*argc*/, char** /*argv*/);
 BENCHMARK_MAIN();
