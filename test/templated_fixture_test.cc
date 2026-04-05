@@ -27,6 +27,6 @@ BENCHMARK_TEMPLATE_DEFINE_F(MyFixture, Bar, double)(benchmark::State& st) {
 }
 BENCHMARK_REGISTER_F(MyFixture, Bar);
 
-#if !defined(_MSC_VER)
+#ifndef PRINCIPIA
 BENCHMARK_MAIN();
-#endif
+#endif  // PRINCIPIA

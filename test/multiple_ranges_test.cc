@@ -98,6 +98,6 @@ void BM_MultipleRanges(benchmark::State& st) {
 BENCHMARK(BM_MultipleRanges)->Ranges({{5, 5}, {6, 6}});
 }  // end namespace
 
-#if !defined(_MSC_VER)
+#ifndef PRINCIPIA
 BENCHMARK_MAIN();
-#endif
+#endif  // PRINCIPIA

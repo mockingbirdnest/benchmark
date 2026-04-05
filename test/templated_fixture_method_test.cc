@@ -25,6 +25,6 @@ BENCHMARK_TEMPLATE_METHOD_F(MyFixture, Foo)(benchmark::State& st) {
 BENCHMARK_TEMPLATE_INSTANTIATE_F(MyFixture, Foo, int);
 BENCHMARK_TEMPLATE_INSTANTIATE_F(MyFixture, Foo, double);
 
-#if !defined(_MSC_VER)
+#ifndef PRINCIPIA
 BENCHMARK_MAIN();
-#endif
+#endif  // PRINCIPIA

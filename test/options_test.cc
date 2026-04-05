@@ -79,6 +79,6 @@ void BM_explicit_iteration_count(benchmark::State& state) {
 BENCHMARK(BM_explicit_iteration_count)->Iterations(42);
 }  // end namespace
 
-#if !defined(_MSC_VER)
+#ifndef PRINCIPIA
 BENCHMARK_MAIN();
-#endif
+#endif  // PRINCIPIA
