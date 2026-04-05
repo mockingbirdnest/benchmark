@@ -1,3 +1,6 @@
+// This test runs the registered benchmarks explicitly which interacts poorly
+// with other tests.
+#ifndef PRINCIPIA
 #include <vector>
 
 #include "benchmark/benchmark_api.h"
@@ -102,3 +105,4 @@ TEST_F(MemoryResultsTest, ResultsTest) {
 }
 
 }  // namespace
+#endif  // PRINCIPIA

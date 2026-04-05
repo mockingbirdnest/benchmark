@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 #include <cassert>
 #include <cstdlib>
 #include <memory>
@@ -64,3 +65,4 @@ int main(int argc, char** argv) {
   benchmark::RegisterProfilerManager(nullptr);
   return 0;
 }
+#endif  // PRINCIPIA

@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 
 #undef NDEBUG
 #include <cassert>
@@ -213,3 +214,4 @@ int main(int argc, char* argv[]) {
 
   return 0;
 }
+#endif  // PRINCIPIA

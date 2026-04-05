@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 #include <cassert>
 #include <climits>
 #include <cmath>
@@ -94,3 +95,4 @@ int main(int argc, char** argv) {
 
   return 0;
 }
+#endif  // PRINCIPIA

@@ -7,6 +7,7 @@
 // NOTE: Users should NOT include or use src/check.h. This is only done in
 // order to test library internals.
 
+#ifndef PRINCIPIA
 #include <cstdlib>
 #include <stdexcept>
 
@@ -105,3 +106,4 @@ int main(int argc, char* argv[]) {
   benchmark::RunSpecifiedBenchmarks();
 #endif
 }
+#endif

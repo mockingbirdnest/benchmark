@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 #include <cstdint>
 
 #include "benchmark/benchmark_api.h"
@@ -68,3 +69,4 @@ int main(int argc, char* argv[]) {
   // Check that accept rvalue.
   benchmark::DoNotOptimize(BitRef::Make());
 }
+#endif

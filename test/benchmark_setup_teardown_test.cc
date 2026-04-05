@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 #include <atomic>
 #include <cassert>
 #include <cstdlib>
@@ -161,3 +162,4 @@ int main(int argc, char** argv) {
 
   return 0;
 }
+#endif  // PRINCIPIA

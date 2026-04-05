@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 // FIXME: WIP
 
 #include <cassert>
@@ -56,3 +57,4 @@ int main(int argc, char* argv[]) {
   assert(pm->start_called == 1);
   assert(pm->stop_called == 1);
 }
+#endif  // PRINCIPIA

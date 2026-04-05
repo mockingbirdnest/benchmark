@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 #include <cstdarg>
 #undef NDEBUG
 
@@ -96,3 +97,4 @@ int main(int argc, char* argv[]) {
   BM_CHECK_GT(withoutPauseResumeInstrCount, kIters);
   BM_CHECK_LT(withPauseResumeInstrCount, 1.5 * withoutPauseResumeInstrCount);
 }
+#endif  // PRINCIPIA

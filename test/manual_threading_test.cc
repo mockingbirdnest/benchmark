@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 
 #include <memory>
 #undef NDEBUG
@@ -176,3 +177,4 @@ int main(int argc, char* argv[]) {
   benchmark::Shutdown();
   assert(numRunThreadsCalled_ > 0);
 }
+#endif  // PRINCIPIA

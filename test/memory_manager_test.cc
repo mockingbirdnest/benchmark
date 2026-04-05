@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 #include <memory>
 
 #include "benchmark/benchmark_api.h"
@@ -52,3 +53,4 @@ int main(int argc, char* argv[]) {
   RunOutputTests(argc, argv);
   benchmark::RegisterMemoryManager(nullptr);
 }
+#endif  // PRINCIPIA

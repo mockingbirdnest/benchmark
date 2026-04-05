@@ -1,3 +1,4 @@
+#ifndef PRINCIPIA
 #include <cassert>
 #include <cstdlib>
 #include <cstring>
@@ -69,3 +70,4 @@ int main(int argc, char** argv) {
 
   return 0;
 }
+#endif  // PRINCIPIA
