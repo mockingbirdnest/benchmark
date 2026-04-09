@@ -10,6 +10,7 @@ on:
 env:
   PRINCIPIA_HEADERS_BENCHMARK: include
   PRINCIPIA_MSVC_BENCHMARK: msvc
+  PRINCIPIA_SOLUTION_BENCHMARK: msvc/benchmark.slnf
 
 jobs:
   build:
@@ -21,6 +22,15 @@ jobs:
     - name: Checkout source files
       uses: actions/checkout@v3
 
+    - name: Checkout abseil source files
+      uses: mockingbirdnest/actions/windows/checkout_abseil@main
+
+    - name: Checkout googletest source files
+      uses: mockingbirdnest/actions/windows/checkout_googletest@main
+
+    - name: Checkout re2 source files
+      uses: mockingbirdnest/actions/windows/checkout_re2@main
+
     - name: Initialize build environment
       uses: mockingbirdnest/actions/windows/initialize_build@main
       with:
@@ -30,7 +40,7 @@ jobs:
       uses: mockingbirdnest/actions/windows/rebuild@main
       with:
         configuration: ${{ matrix.configuration }}
-        solution_directory: ${{ env.PRINCIPIA_MSVC_BENCHMARK }}
+        solution_glob: ${{ env.PRINCIPIA_SOLUTION_BENCHMARK }}
 
     - name: Upload artifact
       uses: mockingbirdnest/actions/windows/upload_artifact@main
