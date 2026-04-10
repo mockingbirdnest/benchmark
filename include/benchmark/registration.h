@@ -239,7 +239,7 @@ BENCHMARK_RESTORE_COUNTER_WARNING
   void BENCHMARK_PRIVATE_CONCAT_NAME(BaseClass, Method)::BenchmarkCase
 
 #define BENCHMARK_MAIN()                                                \
-  int __CLRCALL_OR_CDECL main(int argc, char** argv) {                                     \
+  int __cdecl main(int argc, char** argv) {                                     \
     benchmark::MaybeReenterWithoutASLR(argc, argv);                     \
     char arg0_default[] = "benchmark";                                  \
     char* args_default = reinterpret_cast<char*>(arg0_default);         \
@@ -253,6 +253,6 @@ BENCHMARK_RESTORE_COUNTER_WARNING
     ::benchmark::Shutdown();                                            \
     return 0;                                                           \
   }                                                                     \
-  int __CLRCALL_OR_CDECL main(int, char**)
+  int __cdecl main(int, char**)
 
 #endif  // BENCHMARK_REGISTRATION_H_
