@@ -47,6 +47,9 @@ inline BENCHMARK_ALWAYS_INLINE void DoNotOptimize(Tp const& value) {
   asm volatile("" : : "r,m"(value) : "memory");
 }
 
+// These functions cause weird errors on Clang, see
+// https://godbolt.org/z/zxzz9he3v.
+#if !defined(__clang__)
 template <class Tp>
 inline BENCHMARK_ALWAYS_INLINE void DoNotOptimize(Tp& value) {
 #if defined(__clang__)
@@ -64,6 +67,8 @@ inline BENCHMARK_ALWAYS_INLINE void DoNotOptimize(Tp&& value) {
   asm volatile("" : "+m,r"(value) : : "memory");
 #endif
 }
+#endif
+
 #elif (__GNUC__ >= 5)
 template <class Tp>
 BENCHMARK_DEPRECATED_MSG(
